@@ -1,0 +1,187 @@
+/*global formats*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color:#fff;
+}
+/*index.html pages formats*/
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url("images/background.jpg");
+    background-size:cover;
+    background-position: center;
+    position: absolute
+}
+nav {
+    display: flex;
+    padding: 15px 50px;
+    justify-content: left;
+    align-items: center
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px 5px;
+    position: relative
+}
+.nav-links ul li a {
+    text-decoration: none;
+    font-size: 15px
+}
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #a53a2a ;
+    display: block;
+    margin: auto;
+    transition: 0.5s
+}
+.nav-links ul li:hover::after {
+    width: 100%
+}
+.text-box{
+    position:relative;
+    text-align: center;
+}
+.text-box h1{
+    font-size: 4rem;
+    margin: 50px 300px 
+}
+.text-box p{
+    margin: 10px 0;
+    font-size: 2rem;
+    padding: 30px 0;
+    justify-content: center;
+    align-items: center
+}
+.button {
+    padding: 20px 0;
+}
+.text-box button, .controls button {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    padding: 10px 30px;
+    margin: 10px 20;
+    background: #a53a2a;
+    border-color:#fff;
+    border-radius: 5px;
+    box-shadow: 2px;
+    transition: 1s;
+    align-items: center;
+ 
+}
+.text-box button:hover, .controls button:hover{
+    border-color: #a53a2a;
+    background: #fff;
+    color:#a53a2a ;
+    transition: 1s;
+}
+.footer{
+    width: 100%;
+    padding: 30px, 0;
+    position: relative;
+    padding-top: 160px;
+    text-align: center
+}
+.footer p {
+    font-size: 0.8rem;
+    bottom: 40px
+}
+.icons{
+    font-size: 2rem;
+    padding: 0 10px;
+    border: #a53a2a;
+}
+/*rpsls.html pages's formats*/
+.text-box-play{
+    width: auto;
+    position:relative;
+    text-align: center;
+}
+.text-box-play p{
+    padding: 10px 30px;
+    font-size: 4rem;
+    font-weight: bold;
+}
+.winner{
+    text-align: center;
+    font-size: 2rem
+}
+.game-container{
+    width: auto;
+    height: auto;
+    padding: 15px, 50px ;
+    position: relative;
+    text-align: center;
+
+}
+.game-container #title {
+    padding-bottom: 20px;
+}
+.option-container{
+    text-align: center;
+}
+.option-container button{
+    border-radius:  10px;
+    padding: 10px 10px;
+    border: 0;
+    transition: 1s;
+    ;
+}
+.option-container button:hover{
+    background-color: #a53a2a;
+    transition: 1s;
+}
+.controls{
+    text-align: center;
+    padding-top: 20px;
+    align-content: center;    
+}
+/*about.html formats*/
+.rpsls, .rps{
+    display: block;
+    padding: 10px 5px;
+    text-align: center;
+}
+.rpsls h1, .rps h1{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 2rem;
+}
+.rpsls p, .rps p{
+    text-align: justify;
+    margin: 0 180px;
+    font-size: 1.2rem;
+}
+.rpsls h2, .rps h2 {
+    padding: 15px 0
+}
+.rpsls ul li, .rps ul li {
+    list-style: none;
+    font-size: 1.3rem;
+    font-family: fantasy;
+}
+.rpsls ul, .rps ul{
+    padding-bottom: 25px;
+}
+.rpsls .video-desc{
+    text-align: left;
+    padding-bottom: 20px;
+    font-size: 1.5rem;
+}
+.rps footer{
+    position: relative;
+}
+
+.option-container {
+    display: block;
+}
+
