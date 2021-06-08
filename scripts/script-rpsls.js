@@ -26,9 +26,9 @@ for(let i =0; i< buttons.length; i++){
     container.style.display = 'none';
     playAgainButton.style.display ='block';
     userChoice = buttons[i].value;
-    playGame()
-    result.innerHTML= `Your picked: ${userChoice}, <br>
-    Computer picked: ${playGame()[1]},<br> ${playGame()[0]}`
+    const[winner, computerChoice]=playGame()
+    result.innerHTML= `You picked: ${userChoice}, <br>
+    Computer picked: ${computerChoice},<br> ${winner}`
     result.style.display = 'block';
   })
 }
@@ -60,52 +60,27 @@ const determineWinner = (userChoice, computerChoice)=>{
     return 'It\'s a tie game'
   }
   if(userChoice === 'Scissors'){
-    if (computerChoice === 'Paper'){
+    if (computerChoice === 'Paper' || computerChoice ==='Lizard'){
      return 'You Win';
     } return 'Computer Wins';
   }
   if(userChoice === 'Paper'){
-    if (computerChoice === 'Rock'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Paper'){
-    if (computerChoice === 'Lizard'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Lizard'){
-    if (computerChoice === 'Spock'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Spock'){
-    if (computerChoice === 'Scissors'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Scissors'){
-    if (computerChoice === 'Lizard'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Lizard'){
-    if (computerChoice === 'Paper'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Paper'){
-    if (computerChoice === 'Spock'){
-     return 'You Win';
-    } return 'Computer Wins';
-  }
-  if(userChoice === 'Spock'){
-    if (computerChoice === 'Rock'){
+    if (computerChoice === 'Rock' || computerChoice === 'Spock'){
      return 'You Win';
     } return 'Computer Wins';
   }
   if(userChoice === 'Rock'){
-    if (computerChoice === 'Scissors'){
+    if (computerChoice === 'Lizard' || computerChoice === 'Scissors'){
+     return 'You Win'; 
+    } return 'Computer Wins';
+  }
+  if(userChoice === 'Lizard'){
+    if (computerChoice === 'Paper' || computerChoice === 'Spock'){
+     return 'You Win';
+    } return 'Computer Wins';
+  }
+  if(userChoice === 'Spock'){
+    if (computerChoice === 'Rock' || computerChoice === 'Scissors'){
      return 'You Win';
     } return 'Computer Wins';
   }
