@@ -25,9 +25,9 @@ for(let i =0; i< buttons.length; i++){
     container.style.display = 'none';
     playAgainButton.style.display ='block';
     userChoice = buttons[i].value;
-    playGame()
-    result.innerHTML= `Your picked: ${userChoice}, <br>
-    Computer picked: ${playGame()[1]},<br> ${playGame()[0]}`
+    const[winner, computerChoice]=playGame()
+    result.innerHTML= `You picked: ${userChoice}, <br>
+    Computer picked: ${computerChoice},<br> ${winner}`
     result.style.display = 'block';
   })
 }
@@ -72,7 +72,7 @@ const determineWinner = (userChoice, computerChoice)=>{
 }
 
 const playGame = () =>{
-  let computerChoice = getComputerChoice();
+  const computerChoice = getComputerChoice();
   const winner = determineWinner(userChoice,computerChoice);
   return[winner, computerChoice]
 }
