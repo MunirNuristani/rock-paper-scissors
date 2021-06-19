@@ -13,45 +13,53 @@
     <script defer src="scripts/script-rpsls.js"></script>
 </head>
 <body>
-    <section class="header">
-        <nav>
-            <div class="nav-links">
-                <ul>
-                    <li id="home-rpsls">HOME</li>
-                    <li id="about-rpsls">ABOUT</li>
-                    <li id="classic-rpsls">CLASSIC ROCK PAPER SCISSORS</li>
-                </ul>
+    <nav>
+        <div class="nav-links">
+            <ul>
+                <li id="home-rpsls">HOME</li>
+                <li id="about-rpsls">ABOUT</li>
+                <li id="classic-rpsls">CLASSIC ROCK PAPER SCISSORS</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body">
+        <div class="titleBox">
+            <h1>Rock Paper Scissors Lizard Spock</h1>
+        </div>
+        <div>
+            <div class="choiceStatement">
+                <h2 id='winnerPlaceholder'>Make A Choice</h2>
             </div>
-        </nav>
-        <div class="text-box-play">
-            <p>Rock Paper Scissors<br> Lizard Spock</p>
-            <p id="title" style="font-size : 1.5rem;">Make A Choice</div>
+            <div class="winner">
+                <h2 id="winner"></h2>
+            </div>
         </div>
-        <div class="winner">
-            <p id="winner"></p>
-        </div>
-        <div class="game-container hide">
-            <div class="option-container" >     
-                <button id="Rock" value="Rock" class="btn"> <img src="images/Rock-RPSSL.jpg" alt="rock" height="150"></button>
+        <div class="game-container2" id="game-container">
+            <div class="option-container2" id="options" >     
+                <button id="rock" value="Rock" class="btn"> <img src="images/Rock-RPSSL.jpg" alt="rock" height="150"></button>
                 <button id="paper" value="Paper" class ="btn"> <img src="images/Paper-RPSSL.jpg" alt="paper" height="150"></button>
-                <button id="scissors"value="Scissors" class ="btn"> <img src="images/Scissors-RPSSL.jpg" alt="scissors" height="150"></button>
+                <button id="scissors" value="Scissors" class ="btn"> <img src="images/Scissors-RPSSL.jpg" alt="scissors" height="150"></button> 
                 <button id="lizard" value="Lizard" class ="btn"> <img src="images/Lizard-RPSSL.jpg" alt="lizard" height="150"></button>
                 <button id="spock" value="Spock" class ="btn"> <img src="images/Spock-RPSSL.jpg" alt="spock" height="150"></button>  
             </div>
+            <div id="score"></div>
         </div>
-        <div class= "controls">
-                <button id="play-again">Play Again</button>
+        <div >
+            <button class="playAgain" id="play-again">Play Again</button>
         </div>
-        
-        <footer class="footer">
-            <p class='copyright'>&copy;2021<p>
-            <div class='icons'>
-                <i class="fa fa-facebook-square"></i>
-                <i class="fa fa-twitter-square"></i>
-                <i class="fa fa-github-square"></i>
-                <i class="fa fa-linkedin-square"></i>
-            </div>
-        </footer>
-    </section>
+        <div >
+            <button class="reset" id="reset">Reset</button>
+        </div>
+    </div>
+ 
+    <footer class="footer">
+        <div class='icons'>
+            <i class="fa fa-facebook-square"></i>
+            <i class="fa fa-twitter-square"></i>
+            <i class="fa fa-github-square"></i>
+            <i class="fa fa-linkedin-square"></i>
+        </div>
+        <p class='copyright'>&copy;2021<p></p>
+    </footer>
 </body>
 </html>

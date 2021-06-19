@@ -12,26 +12,28 @@ and converts it to lower case for easy comparison*/
  nav('home-classic','index.html');
  nav('about-classic','about.html');
  nav('rpsls-classic','rpsls.html');
-
 /*----classic Game Play----*/
-const youWin = 'You Win';
-const computerWin = 'Computer Wins';
+
 const buttons = document.querySelectorAll('button.btn');
 const container = document.querySelector('div.game-container');
 const playAgainButton = document.getElementById('play-again')
 const result = document.getElementById('winner')
+const winnerPlaceholder = document.getElementById('winnerPlaceholder')
+const reset =  document.getElementById('reset');
+const youWin = 'You Win';
+const computerWin = 'Computer Wins';
 let userChoice = "";
 let playerTalley=0;
 let computerTalley=0;
-
 for(let i =0; i< buttons.length; i++){
   buttons[i].addEventListener('click', ()=>{
     container.style.display = 'none';
     playAgainButton.style.display ='block';
     userChoice = buttons[i].value;
     const[winner, computerChoice]=playGame()
+    winnerPlaceholder.textContent = `${winner}`;
     result.innerHTML= `You picked: ${userChoice}, <br>
-    Computer picked: ${computerChoice},<br> ${winner}`
+    Computer picked: ${computerChoice}`
     result.style.display = 'block';
   })
 }
@@ -39,6 +41,7 @@ playAgainButton.addEventListener('click',()=>{
   container.style.display = 'block';
   playAgainButton.style.display = 'none';
   result.style.display = 'none';
+  winnerPlaceholder.textContent = 'Make A Choice'
 })
 
 
@@ -74,30 +77,31 @@ const determineWinner = (userChoice, computerChoice)=>{
     }return youWin;
   }
 }
-
 const playGame = () =>{
   const computerChoice = getComputerChoice();
   const winner = determineWinner(userChoice,computerChoice);
-  console.log("winner: ", winner);
   talley(winner);
   return[winner, computerChoice]
 }
+function generateText (player, computer) {
+  const scoreDiv = document.getElementById("score");
+  const firstString = `<p>Your score is: ${player}.</p>`;
+  const secontString = `<p>The computer's score is ${computer}.</p>`;
+  return scoreDiv.innerHTML=firstString+secontString;
+}
 
 const talley = (whoWins) =>{
-  // console.log("whoWins",whoWins);
   if(whoWins==youWin){
     playerTalley++;
-    // console.log("You winnnnn");
   }
   if(whoWins==computerWin){
     computerTalley++;
-    // console.log("Computer wins.");
   }
-  console.log("The score is you: ",playerTalley, " and the computer: ", computerTalley);
-  const scoreDiv = document.getElementById("score");
-  const firstString = `<p>Your score is: ${playerTalley}.</p>`;
-  const secontString = `<p>The computer's score is ${computerTalley}.</p>`;
-  // scoreDiv.innerHTML=`<p>Your score is: ${playerTalley}.</p><p>The computer's score is ${computerTalley}.</p>`;
-  scoreDiv.innerHTML=firstString+secontString;
-  // console.log(scoreDiv);
+  generateText(playerTalley, computerTalley)
 }
+
+reset.addEventListener('click', () => {
+  playerTalley = 0;
+  computerTalley = 0;
+  generateText(0, 0)
+})

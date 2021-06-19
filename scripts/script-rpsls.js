@@ -16,10 +16,16 @@ and converts it to lower case for easy comparison*/
 
 /*----classic Game Play----*/
 const buttons = document.querySelectorAll('button.btn');
-const container = document.querySelector('div.game-container');
+const container = document.querySelector('div.game-container2');
 const playAgainButton = document.getElementById('play-again')
 const result = document.getElementById('winner')
+const winnerPlaceholder = document.getElementById('winnerPlaceholder')
+const reset =  document.getElementById('reset');
+const youWin = 'You Win';
+const computerWin = 'Computer Wins';
 let userChoice = "";
+let playerTalley=0;
+let computerTalley=0;
 
 for(let i =0; i< buttons.length; i++){
   buttons[i].addEventListener('click', ()=>{
@@ -27,8 +33,9 @@ for(let i =0; i< buttons.length; i++){
     playAgainButton.style.display ='block';
     userChoice = buttons[i].value;
     const[winner, computerChoice]=playGame()
+    winnerPlaceholder.textContent = `${winner}`
     result.innerHTML= `You picked: ${userChoice}, <br>
-    Computer picked: ${computerChoice},<br> ${winner}`
+    Computer picked: ${computerChoice}`
     result.style.display = 'block';
   })
 }
@@ -36,6 +43,7 @@ playAgainButton.addEventListener('click',()=>{
   container.style.display = 'block';
   playAgainButton.style.display = 'none';
   result.style.display = 'none';
+  winnerPlaceholder.textContent = 'Make A Choice'
 })
 
 
@@ -61,35 +69,57 @@ const determineWinner = (userChoice, computerChoice)=>{
   }
   if(userChoice === 'Scissors'){
     if (computerChoice === 'Paper' || computerChoice ==='Lizard'){
-     return 'You Win';
-    } return 'Computer Wins';
+     return youWin;
+    } return computerWin;
   }
   if(userChoice === 'Paper'){
     if (computerChoice === 'Rock' || computerChoice === 'Spock'){
-     return 'You Win';
-    } return 'Computer Wins';
+      return youWin;
+    } return computerWin;
   }
   if(userChoice === 'Rock'){
     if (computerChoice === 'Lizard' || computerChoice === 'Scissors'){
-     return 'You Win'; 
-    } return 'Computer Wins';
+      return youWin;
+    } return computerWin;
   }
   if(userChoice === 'Lizard'){
     if (computerChoice === 'Paper' || computerChoice === 'Spock'){
-     return 'You Win';
-    } return 'Computer Wins';
+      return youWin;
+    } return computerWin;
   }
   if(userChoice === 'Spock'){
     if (computerChoice === 'Rock' || computerChoice === 'Scissors'){
-     return 'You Win';
-    } return 'Computer Wins';
+      return youWin;
+    } return computerWin;
   }
 }
-
 
 const playGame = () =>{
   const computerChoice = getComputerChoice();
   const winner = determineWinner(userChoice,computerChoice);
+  talley(winner);
   return[winner, computerChoice]
-  
 }
+
+function generateText (player, computer) {
+  const scoreDiv = document.getElementById("score");
+  const firstString = `<p>Your score is: ${player}.</p>`;
+  const secontString = `<p>The computer's score is ${computer}.</p>`;
+  return scoreDiv.innerHTML=firstString+secontString;
+}
+
+const talley = (whoWins) =>{
+  if(whoWins==youWin){
+    playerTalley++;
+  }
+  if(whoWins==computerWin){
+    computerTalley++;
+  }
+  generateText(playerTalley, computerTalley)
+}
+
+reset.addEventListener('click', () => {
+  playerTalley = 0;
+  computerTalley = 0;
+  generateText(0, 0)
+})

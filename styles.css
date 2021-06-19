@@ -3,24 +3,25 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    color:#fff;
+    background-color: rgb(58, 58, 58);
+    
+    color:rgb(231, 231, 231);
 }
 /*index.html pages formats*/
-.header {
+body {
+    display: flex;
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url("images/background.jpg");
-    background-size:cover;
-    background-position: center;
-    position: absolute
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+    position: absolute;
+    flex-direction: column;
 }
 nav {
     display: flex;
-    padding: 15px 50px;
-    justify-content: left;
-    align-items: center
+    padding: 15px 20px
 }
-
 .nav-links {
     flex: 1;
     text-align: right
@@ -29,17 +30,14 @@ nav {
     list-style: none;
     display: inline-block;
     padding: 5px 5px;
-    position: relative
-}
-.nav-links ul li a {
-    text-decoration: none;
-    font-size: 15px
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 .nav-links ul li::after {
     content: '';
     width: 0%;
     height: 2px;
-    background: #a53a2a ;
+    background: #000000 ;
     display: block;
     margin: auto;
     transition: 0.5s
@@ -47,141 +45,189 @@ nav {
 .nav-links ul li:hover::after {
     width: 100%
 }
-.text-box{
-    position:relative;
+
+.body {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    top: 100px;
 }
-.text-box h1{
-    font-size: 4rem;
-    margin: 50px 300px 
-}
-.text-box p{
-    margin: 10px 0;
+.titleBox, .mainHeading {
     font-size: 2rem;
-    padding: 30px 0;
+    padding: 35px 10px 25px;
+}
+.choiceStatement {
+    font-size: 1.5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.btn {
+    background: transparent;
+    border: none;
     justify-content: center;
-    align-items: center
 }
-.button {
-    padding: 20px 0;
-}
-.text-box button, .controls button {
-    font-size: 1.2rem;
-    font-weight: bolder;
-    padding: 10px 30px;
-    margin: 10px 20;
-    background: #a53a2a;
-    border-color:#fff;
+img {
+    padding: 10px 20px;
+    margin: auto;
+    background: #fff;
+    border:solid 2px #a53a2a;
     border-radius: 5px;
-    box-shadow: 2px;
     transition: 1s;
     align-items: center;
- 
 }
-.text-box button:hover, .controls button:hover{
+img:hover{
     border-color: #a53a2a;
-    background: #fff;
-    color:#a53a2a ;
+    background: #a53a2a;
     transition: 1s;
 }
-.footer{
-    width: 100%;
-    padding: 30px, 0;
-    position: relative;
-    padding-top: 160px;
-    text-align: center
-}
-.footer p {
-    font-size: 0.8rem;
-    bottom: 40px
-}
-.icons{
-    font-size: 2rem;
-    padding: 0 10px;
-    border: #a53a2a;
-}
-/*rpsls.html pages's formats*/
-.text-box-play{
-    width: auto;
-    position:relative;
-    text-align: center;
-}
-.text-box-play p{
-    padding: 10px 30px;
-    font-size: 4rem;
-    font-weight: bold;
-}
-.winner{
-    text-align: center;
-    font-size: 2rem
-}
-.game-container{
-    width: auto;
-    height: auto;
-    padding: 15px, 50px ;
-    position: relative;
-    text-align: center;
-
-}
-.game-container #title {
-    padding-bottom: 20px;
+.game-container {
+    margin-bottom: 25px;
 }
 .option-container{
-    text-align: center;
-}
-.option-container button{
-    border-radius:  10px;
-    padding: 10px 10px;
-    border: 0;
-    transition: 1s;
-    ;
-}
-.option-container button:hover{
-    background-color: #a53a2a;
-    transition: 1s;
-}
-.controls{
-    text-align: center;
-    padding-top: 20px;
-    align-content: center;    
-}
-/*about.html formats*/
-.rpsls, .rps{
-    display: block;
-    padding: 10px 5px;
-    text-align: center;
-}
-.rpsls h1, .rps h1{
-    text-align: center;
-    padding-bottom: 10px;
-    font-size: 2rem;
-}
-.rpsls p, .rps p{
-    text-align: justify;
-    margin: 0 180px;
-    font-size: 1.2rem;
-}
-.rpsls h2, .rps h2 {
-    padding: 15px 0
-}
-.rpsls ul li, .rps ul li {
-    list-style: none;
-    font-size: 1.3rem;
-    font-family: fantasy;
-}
-.rpsls ul, .rps ul{
-    padding-bottom: 25px;
-}
-.rpsls .video-desc{
-    text-align: left;
-    padding-bottom: 20px;
-    font-size: 1.5rem;
-}
-.rps footer{
-    position: relative;
+   
+    margin: 10px auto;
+    width: 50%;
+    padding: 20px 50px
 }
 
-.option-container {
-    display: block;
+.footer {
+    margin:auto;
+    margin-bottom: 5px;
+    justify-content: center;
+    text-align: center;
 }
+.icons {
+    font-size: 2.5rem
+}
+
+.playAgain, .reset, .start {
+    display: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 5px;
+    border:solid 2px #a53a2a;
+    transition: 1s;
+    margin: auto;
+}
+.playAgain:hover, .reset:hover, .start:hover {
+    background-color:#a53a2a ;
+    color: #fff;
+}
+.winner {
+    padding-bottom: 30px;
+}
+#score {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin:auto;
+    font-size: 1.6rem;
+}
+#score :nth-child(1){
+    border: solid 2px #a53a2a;
+    border-radius: 5px;
+    padding: 1px 80px;
+}
+#score :nth-child(2){
+    border: solid 2px #a53a2a;
+    border-radius: 5px;
+    padding: 1px 10px;
+}
+
+.reset, .start {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-weight: 600;
+}
+/*----index.html----*/
+
+.mainHeading{
+    padding: 50px;
+}
+.mainSubheading{
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding: 10px 0 50px 0;
+}
+.start {
+    position:initial;
+}
+/*---- about.html----*/
+.information {
+    width: 80%;
+    margin: auto;
+}
+.section1 h1, .section1 p, .section1 h2, .section1 ul, .lastSection h1, .lastSection p, .lastSection ul {
+    padding: 15px 0;
+}
+.section1 h1, .lastSection h1{
+    font-size: 3rem;
+}
+.section1 ul, .lastSection ul{
+    list-style: none;
+    font-size: 1.3rem;
+}
+.section1 p, .lastSection p{
+    text-align: justify;
+    font-size: 1.3rem;
+}
+.lastSection ul {
+    margin-bottom: 20px;
+}
+/*----rspls----*/
+.game-container {
+    margin-bottom: 25px;
+}
+.option-container{
+   
+    margin: 10px auto;
+    width: 80%;
+    padding: 20px 50px;
+}
+ @media screen and (max-width:400px) {
+     .body {
+         height: 100vh;
+     }
+     .reset {
+         padding: 5px;
+         right: 0;
+     }
+     h1, h2 {
+         font-size: 24px;
+     }
+     .nav-links ul li{
+         font-weight: 12px;
+     }
+     .titleBox, .choiceStatement{
+         padding: 2px;
+     }
+     .fa-times {
+         position:absolute;
+         right: 45vw;
+         margin-top: 0px;
+     }
+    
+    .nav-links ul{
+        display: inline-block;
+
+        top: 50px;
+        right:0px;
+ 
+    }
+    .nav-links ul li{
+        display: inline-block;
+        font-size: 12px
+    
+    }
+
+}
+
+
+
+
+
+
 
